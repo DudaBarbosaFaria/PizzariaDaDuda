@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Print G1</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/estilo.css')}}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/usuarios">Usuarios</a>
+                </li>
+                <li>
+                    <a href="/pizzas">Pizzas</a>
+                </li>
+                <li>
+                    <a href="/pedidos">Pedidos</a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+    <main>
+        {% block conteudo %}
+        {% endblock %}
+    </main>
+</body>
+</html>

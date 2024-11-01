@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+        {% for msg in mensagens %}
+            <div class="message">
+                {{ msg }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div>
+        <a href="/pizzas/add">Adicionar</a>
+    </div>
+    <table>
+        <tr>
+            <th>Sabor</th>
+            <th>Ingredientes</th>
+            <th>Preço</th>
+        </tr>
+        {% for u in dados %}
+        <tr>
+            <td>{{u.sabor}}</td>
+            <td>{{u.ingredientes}}</td>
+            <td>{{u.preco}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

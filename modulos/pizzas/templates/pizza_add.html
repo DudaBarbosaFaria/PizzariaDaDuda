@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+        {% for msg in mensagens %}
+            <div class="message">
+                {{ msg }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form action="/pizzas/save" method="post">
+        <div>
+            <label for="sabor">Sabor: </label>
+            <input type="text" name="sabor" id="sabor">
+        </div>
+        <div>
+            <label for="ingredientes">Ingredientes:</label>
+            <input type="text" name="ingredientes" id="ingredientes">
+        </div>
+        <div>
+            <label for="preco">Preço: </label>
+            <input type="number" name="preco" id="preco">
+        </div>
+        <button type="submit">Salvar</button>
+    </form>
+{% endblock %}
