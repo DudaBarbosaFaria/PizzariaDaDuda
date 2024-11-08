@@ -28,7 +28,7 @@ class Pizza(db.Model):
         self.preco = preco
     
     def __repr__(self):
-        return "<Pizza {}>".format(self.nome)
+        return "<Pizza {}>".format(self.sabor)
     
 class Pedido(db.Model):
     __tablename__ = 'pedido'

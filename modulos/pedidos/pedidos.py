@@ -1,17 +1,19 @@
 from flask import Blueprint, render_template, request, redirect, flash
 from database import db
-from models import Pedido
+from models import Usuario, Pedido, Pizza
 
 bp_pedido = Blueprint('pedido', __name__, template_folder="templates")
 
 @bp_pedido.route('/')
 def index():
-    dados = Pedido.query.all()
-    return render_template('pedido.html', dados=dados)
+    p = Pedido.query.all()
+    return render_template('pedido.html', pedidos=p)
 
 @bp_pedido.route('/add')
 def add():
-    return render_template('pedido_add.html')
+    usuario = Usuario.query.all()
+    p = Pizza.query.all()
+    return render_template('pedido_add.html', usuarios=usuario, pizzas=p)
 
 @bp_pedido.route('/save', methods=['POST'])
 def save():
